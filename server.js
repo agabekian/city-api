@@ -76,4 +76,4 @@ app.use((error, request, response, next)=> {
 // LISTEN
 // starts the server
 // .listen() is an express method that takes in a PORT value and a callback function
-app.listen(PORT, ()=> console.log(`We are up on PORT: ${PORT}`));
+app.listen(PORT, ()=> console.log(`We are up on PORT: ${PORT}`)||3002);
