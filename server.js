@@ -6,7 +6,6 @@ console.log('YAASS our first server!');
 // REQUIRES - we use require on the backend and import on the front end
 const express = require('express');
 require('dotenv').config();
-// let data = require('./data/pets.json');
 let data = require('./data/weather.json');
 const cors = require('cors');
 
@@ -43,9 +42,11 @@ app.get('/', (request, response) => {
 app.get('/weather', (request, response, next) => {
   try {
     let name = request.query.name;
-    // console.log(species);
-    let dataToGroom = data.find(city => city.name === name);
-    let dataToSend = new Forecast(dataToGroom);
+    console.log(typeof name)
+    console.log(data[0].city_name);
+    let dataToGroom = data.find(obj => obj.city_name === name);
+    console.log(dataToGroom);
+    let dataToSend = dataToGroom.data.map(d=>new Forecast(d));
     response.status(200).send(dataToSend);
   } catch (error) {
     // if I have an error, this will create a new instance of the Error Object that lives in Express.
@@ -53,17 +54,10 @@ app.get('/weather', (request, response, next) => {
   }
 });
 
-// class Pet {
-//   constructor(petObj){
-//     this.name = petObj.name;
-//     this.breed = petObj.breed;
-//   }
-// }
-
 class Forecast {
   constructor(resObj){
-    this.date = resObj.data.date;
-    this.description = resObj.description;
+    this.date = resObj.datetime;
+    this.description = resObj.weather.description;
   }
 }
 
