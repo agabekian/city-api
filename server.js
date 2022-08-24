@@ -1,5 +1,4 @@
 'use strict'
-'use strict';
 
 console.log('Am running or what?!');
 
@@ -46,7 +45,7 @@ app.get('/weather', (request, response, next) => {
     console.log(data[0].city_name);
     let dataToGroom = data.find(obj => obj.city_name === name);
     console.log(dataToGroom);
-    let dataToSend = dataToGroom.data.map(d => new Forecast(d));
+    let dataToSend = dataToGroom.data.map(d => {return new Forecast(d)});
     response.status(200).send(dataToSend);
   } catch (error) {
     // if I have an error, this will create a new instance of the Error Object that lives in Express.
