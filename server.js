@@ -4,9 +4,9 @@ console.log('Am running or what?!');
 
 // REQUIRES - we use require on the backend and import on the front end
 const express = require('express');
+const cors = require('cors');
 require('dotenv').config();
 let data = require('./data/weather.json');
-const cors = require('cors');
 
 // once express is in we need to use it - per express docs
 const app = express();
@@ -31,12 +31,6 @@ app.get('/', (request, response) => {
   response.status(200).send('Welcome to our server');
 });
 
-// app.get('/hello', (request, response) => {
-//   console.log(request.query);
-//   let firstName = request.query.firstName;
-//   let lastName = request.query.lastName;
-//   response.status(200).send(`Hello ${firstName} ${lastName} from the hello route!`);
-// });
 
 app.get('/weather', (request, response, next) => {
   try {
