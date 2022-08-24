@@ -1,7 +1,7 @@
 'use strict'
 'use strict';
 
-console.log('YAASS our first server!');
+console.log('Am running or what?!');
 
 // REQUIRES - we use require on the backend and import on the front end
 const express = require('express');
@@ -42,11 +42,11 @@ app.get('/', (request, response) => {
 app.get('/weather', (request, response, next) => {
   try {
     let name = request.query.name;
-    console.log(typeof name)
+    // console.log(typeof name)
     console.log(data[0].city_name);
     let dataToGroom = data.find(obj => obj.city_name === name);
     console.log(dataToGroom);
-    let dataToSend = dataToGroom.data.map(d=>new Forecast(d));
+    let dataToSend = dataToGroom.data.map(d => new Forecast(d));
     response.status(200).send(dataToSend);
   } catch (error) {
     // if I have an error, this will create a new instance of the Error Object that lives in Express.
@@ -55,25 +55,25 @@ app.get('/weather', (request, response, next) => {
 });
 
 class Forecast {
-  constructor(resObj){
+  constructor(resObj) {
     this.date = resObj.datetime;
     this.description = resObj.weather.description;
   }
 }
 
 
+
+// ERRORS
+// Handle any errors
+app.use((error, request, response, next) => {
+  response.status(500).send(error.message);
+});
+
 // Catch all - needs to be at the bottom
 app.get('*', (request, response) => {
   response.status(404).send('This route does not exist');
 });
-
-// ERRORS
-// Handle any errors
-app.use((error, request, response, next)=> {
-  response.status(500).send(error.message);
-});
-
 // LISTEN
 // starts the server
 // .listen() is an express method that takes in a PORT value and a callback function
-app.listen(PORT, ()=> console.log(`We are up on PORT: ${PORT}`)||3002);
+app.listen(PORT, () => console.log(`We are up on PORT: ${PORT}`) || 3002);

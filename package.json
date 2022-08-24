@@ -11,8 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/agabekian/city-api.git"
   },
-  "author": "aa",
-  "license": "ISC",
+  "author": "armen-agabekian",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/agabekian/city-api/issues"
   },
