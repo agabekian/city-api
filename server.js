@@ -59,6 +59,7 @@ class Forecast {
 class Movie {
   constructor(resObj) {
     this.title = resObj.original_title;
+    this.poster_path=resObj.poster_path;
   }
 }
 
