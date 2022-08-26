@@ -1,4 +1,5 @@
 const axios = require('axios');
+
 async function getWeather(request, response) {
     // note the .searchQuery
     const { lat, lon } = request.query;
