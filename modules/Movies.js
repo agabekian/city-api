@@ -13,7 +13,7 @@ async function getMovies(request, response, next) {
         // console.log(movieArr);
         response.status(200).send(movieArr);
     } catch (err) {
-        next(err) //using bukt-in "next" instead of line below:
+        next(err) //using built-in "next" instead of line below:
         // response.status(500).send(`server error`);
     }
 }

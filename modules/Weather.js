@@ -1,5 +1,4 @@
-import axios from ('axios');
-
+const axios = require('axios');
 async function getWeather(request, response) {
     // note the .searchQuery
     const { lat, lon } = request.query;
@@ -7,7 +6,7 @@ async function getWeather(request, response) {
     try {
       // axios get request to our api
       const weatherResponses = await axios.get(url);
-      console.log(">>>>>>>>>>>>>>>>>"+weatherResponses.data.weather);
+      // console.log(">>>>>>>>>>>>>>>>>"+weatherResponses.data.weather);
       // groomed data
       const forecastArray = weatherResponses.data.data.map(f => new Forecast(f));
       console.log("FINAL PRODUCT", forecastArray);
@@ -25,4 +24,4 @@ async function getWeather(request, response) {
     }
   }
 
-  module.export = getWeather;
+  module.exports = getWeather;
