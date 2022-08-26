@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+
 async function getMovies(request, response, next) {
     console.log("I am modularized");
     const { city } = request.query;
