@@ -12,9 +12,11 @@ require('dotenv').config();
 
 
 // once express is in we need to use it - per express docs
-const app = express();// middleware to share resources across the internet
+// middleware to share resources across the internet
+const app = express();
 app.use(cors());
-const PORT = process.env.PORT || 3002;// define port for server to listen on
+const PORT = process.env.PORT || 3002;
+// define port for server to listen on
 // 3002 — if my server runs on 3002, I know something is wrong with my .env file or how I'm importing the values from it
 
 // ROUTES - our endpoints
@@ -47,7 +49,6 @@ app.get('/weather', getWeather);
 app.get('/movies', getMovies);
 
 // ERRORS
-// Handle any errors
 app.use((error, request, response, next) => {
   response.status(500).send(error.message);
 });
