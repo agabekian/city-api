@@ -23,7 +23,7 @@ function weatherHandler(request, response) {
 } 
 
 function moviesHandler(request, response) {
-  const city = request.query;
+  const {city} = request.query;
   movies(city)
   .then(summaries => response.send(summaries))
   .catch((error) => {
