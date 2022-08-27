@@ -5,3 +5,5 @@
 
 
 ![scheme](https://user-images.githubusercontent.com/64112736/186766256-8ef47087-9edf-4f96-aa14-53925434ba5c.jpg)
+
+![cache.PNG](/cache.PNG)
